@@ -112,22 +112,22 @@ The code for my final model is located in the twelfth cell of the ipython notebo
 
 My final model was building on the LeNet network, and consisted of the following layers:
 
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 14x14x6   				|
-| Convolution 5x5     	| 1x1 stride, valid padding, outputs 10x10x16 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 5x5x16   				|
-| Fully connected		| Input = 400. Output = 120      				|
-| RELU					|												|
-| Dropout				|           									|
-| Fully connected		| Input = 120. Output = 84      				|
-|       				|        									|
-|						|												|
-|						|												|
+| Layer         		|     Description	        					   | 
+|:---------------------:|:------------------------------------------------:| 
+| Input         		| 32x32x3 RGB image   							   |   
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	   |
+| RELU					|												   |
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6   				   |
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 10x10x16 	   |
+| RELU					|												   |
+| Max pooling	      	| 2x2 stride,  outputs 5x5x16   				   |
+| Fully connected		| Input = 400. Output = 120      				   |
+| RELU					|												   |
+| Dropout				|           									   |
+| Fully connected		| Input = 120. Output = 84      				   |
+| RELU	      			|        									       |
+| Output				| Input = 84. Output = n_classes (in this case 43) |
+|						|												   |
  
 For the cross entropy I used softmax\_cross\_entropy\_with\_logits.
 In addition, I used l2 regularisation on the weights and biases of the last two layers (tf.nn.l2\_loss()).
@@ -199,7 +199,7 @@ Here are the results of the prediction without data augmentation:
 | Pedestrians	      	             | General caution					 			|
 | End of all speed and passing limits| End of speed limit (80km/h)     			    |
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was unable to correctly guess the traffic signs, only the version without the data augmentation guessed one out of the 5 (accuracy 20%), as will be described in more detail in the next section.
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
